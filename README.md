@@ -2,7 +2,7 @@
 
 This repository contains research code for **learning memory kernels** in generalized Langevin equations (GLEs) from trajectory data. It implements the full pipeline developed in
 
-> Q. Lang and J. Lu, “Learning Memory Kernels in Generalized Langevin Equations,” SIAM Journal on Mathematics of Data Science, 2025.
+> Quanjun Lang and Jianfeng Lu, “Learning Memory Kernels in Generalized Langevin Equations,” SIAM Journal on Mathematics of Data Science, 2025.
 
 including nonparametric kernel estimation via a regularized Prony method, Laplace–domain reconstruction, and regression with RKHS regularization.
 
