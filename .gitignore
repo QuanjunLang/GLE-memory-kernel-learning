@@ -1,0 +1,25 @@
+# MATLAB automatic files
+*.asv
+*.m~
+*.mat         # large data files (optional)
+*.fig
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Python notebook checkpoints (if any)
+.ipynb_checkpoints/
+
+# Generated data / simulation results
+data/
+results/
+figures/
+output/
+
+# Cache / temporary folders
+__pycache__/
+tmp/
