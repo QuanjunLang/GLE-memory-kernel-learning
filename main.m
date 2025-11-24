@@ -2,7 +2,7 @@
 % clc
 close all
 clear all
-random_seed = 20;
+random_seed = 5;
 rng(random_seed);
 addPathAll;
 
@@ -10,18 +10,18 @@ addPathAll;
 
 %% Generate true memory kernel along with it s Fourier transform and Laplace transform
 % memoryInfo.kernel_type = 'Test';
-memoryInfo.kernel_type = 'RandomProny_p_3_q_1'; 
-
+memoryInfo.kernel_type = 'RandomProny_p_2_q_2'; 
+% 
 % memoryInfo.kernel_type  = 'PowerLaw';
 % memoryInfo.kernel_type  = 'Polynomial';
-memoryInfo.plotON       = 0;
+memoryInfo.plotON       = 1;
 
 memoryInfo = generate_memory_kernel(memoryInfo);
 
 %% Generate system info
 sysInfo.m      = 1;
 sysInfo.beta   = 1;
-sysInfo.mu     = 1;
+sysInfo.mu     = 0;
 
 sysInfo.F_type = 'linear';      % linear, double_well
 sysInfo.G_type = '0';
@@ -36,9 +36,9 @@ trajInfo.loadON    = 1;
 trajInfo.plotON    = 0;
 trajInfo.wu        = 80*pi;       % Spectral cutoff
 trajInfo.N         = 8000;        % Number of spectral points
-trajInfo.L         = 2000;
+trajInfo.L         = 2^16;
 trajInfo.dt        = pi/trajInfo.wu;
-trajInfo.M         = 5000;
+trajInfo.M         = 1;
 
 trajInfo = generate_trajectories(memoryInfo, sysInfo, trajInfo, random_seed);
 
@@ -56,7 +56,7 @@ sysInfo.omega  = 2.5;                     % Define Measure rho
 sysInfo.rho    = @(x) exp(-2*sysInfo.omega*x);
 
 
-temporal_spacial_method = 'M_only';
+temporal_spacial_method = 'L_only'; % L_only, M_only, Mixed
  
 [corr_func, corr_func_obs] = get_correlations_true_obs(sysInfo, trajInfo, obsInfo, temporal_spacial_method);
 

@@ -89,6 +89,7 @@ else
         tic;
         f = zeros(L, M);
         parfor k = 1:M
+            k
             f(:, k) = generate_correlated_noise(kernel, kernel_Fourier, wu, N, L, 'dt', dt);
         end
         save(nse_file_name, 'f')
@@ -105,7 +106,7 @@ else
 
     v = zeros(L, M);
     parfor k = 1:M
-        % k
+        k
         v_temp = zeros(L, 1);
         v_temp(1) = randn();
         cutoff = L;         % Cut off is necessary
